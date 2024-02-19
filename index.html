@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfica de Regresión Lineal</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>Gráfica de Regresión Lineal</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>X</th>
+                <th>Y</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="data-table">
+            <!-- Aquí se agregarán las filas de datos dinámicamente -->
+        </tbody>
+        <tr id="button-inf">
+            <th><button id="add-data-btn">Agregar Dato</button></th>
+            <th><button id="plot-graph-btn">Graficar</button></th>
+            <th></th>
+        </tr>
+    </table>
+
+    <div id="graph-container">
+        <!-- Aquí se agregará la gráfica -->
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+
