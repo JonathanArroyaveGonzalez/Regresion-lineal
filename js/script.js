@@ -1,3 +1,10 @@
+let docTitle = document.title;
+window.addEventListener("blur",() =>{
+    document.title = "¡Regresa! ☹"
+})
+window.addEventListener("focus", ()=>{
+    document.title= docTitle;
+})
 document.addEventListener("DOMContentLoaded", function() {
     const data = [];
 
@@ -24,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
     plotGraphBtn.addEventListener("click", function() {
         const inputXElements = document.querySelectorAll(".input-x");
         const inputYElements = document.querySelectorAll(".input-y");
-
+        
         inputXElements.forEach((inputX, index) => {
             const x = parseFloat(inputX.value);
             const y = parseFloat(inputYElements[index].value);
@@ -42,7 +49,17 @@ document.addEventListener("DOMContentLoaded", function() {
         const margin = { top: 20, right: 20, bottom: 90, left: 90 }; // Aumentamos el espacio inferior para dejar espacio al texto
         const width = 600 - margin.left - margin.right;
         const height = 400 - margin.top - margin.bottom;
-    
+
+        //Datos del nombre de las variables para el titulo de la grafica
+        let inputX = document.getElementById("inputX").value;
+        let inputY = document.getElementById("inputY").value;
+        //Inicializar el nombre de las variables por defecto x,y
+
+        if(inputX.trim() === "" && inputY.trim() === ""){
+            inputX="X";
+            inputY="Y";
+        };
+        
         const svg = d3.select("#graph-container").append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
@@ -111,11 +128,25 @@ document.addEventListener("DOMContentLoaded", function() {
             .attr("opacity", 0.8); // ajusta la opacidad
     
         // Mostrar ecuación de la línea y coeficiente R^2
-        const equationText = `y = ${intercept.toFixed(2)} + ${slope.toFixed(2)}x`;
+        let equationText = `${inputY} =  ${slope.toFixed(2)} ${inputX}  + ${intercept.toFixed(2)} `;
+
+        if(intercept.toFixed(2)<0){
+            equationText = `${inputY} =  ${slope.toFixed(2)} ${inputX}  ${intercept.toFixed(2)} `;
+        };
+
         const rSquaredText = `R² = ${coefficientOfDetermination.toFixed(2)}`;
+        const titleG = `${inputX} Frente a ${inputY}`;
         svg.append("text")
             .attr("x", width / 2)
-            .attr("y", -margin.top / 2)
+            .attr("y", -margin.top/ + 5 ) // Ajustamos la posición vertical para evitar superposición
+            .attr("text-anchor", "middle")
+            .text(titleG)
+            .style("font-size", "18px")
+            .style("fill", "black");
+
+        svg.append("text")
+            .attr("x", width / 2)
+            .attr("y", -margin.top / 2 + 22)
             .attr("text-anchor", "middle")
             .text(equationText)
             .style("font-size", "14px")
@@ -123,11 +154,13 @@ document.addEventListener("DOMContentLoaded", function() {
     
         svg.append("text")
             .attr("x", width / 2)
-            .attr("y", -margin.top / 2 + 20) // Ajustamos la posición vertical para evitar superposición
+            .attr("y", -margin.top / 2 + 40) // Ajustamos la posición vertical para evitar superposición
             .attr("text-anchor", "middle")
             .text(rSquaredText)
             .style("font-size", "14px")
             .style("fill", "black");
+            
+            
     }
     
     

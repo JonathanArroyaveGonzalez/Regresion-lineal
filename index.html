@@ -3,34 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gráfica de Regresión Lineal</title>
+    <title>Gráficas Regresión Lineal</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="assets/icono.ico" type="image/x-icon">
+    
 </head>
 <body>
-    <h1>Gráfica de Regresión Lineal</h1>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>X</th>
-                <th>Y</th>
+    <header class="header">
+        <h1>Gráficas Regresión Lineal <img class="img-grafica" src="assets/linea-grafica.png" alt="LinkedIn" ></h1>
+        
+    </header>
+    <div class="description">
+        <p>Plataforma web diseñada para estudiantes de Laboratorio de Física 2 en la Universidad de Caldas.
+            Ofrece una herramienta práctica para comprender y aplicar la regresión lineal en experimentos físicos,
+             facilitando su realización y comprensión.
+       </p>
+    </div>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th><input type="text" placeholder="Variable independiente X" id="inputX" /></th>
+                    <th><input type="text" placeholder="Variable dependiente Y" id="inputY"/></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="data-table">
+                <!-- Aquí se agregarán las filas de datos dinámicamente -->
+            </tbody>
+            <tr id="button-inf">
+                <th><button id="add-data-btn">Agregar Dato</button></th>
+                <th><button id="plot-graph-btn">Graficar</button></th>
                 <th></th>
             </tr>
-        </thead>
-        <tbody id="data-table">
-            <!-- Aquí se agregarán las filas de datos dinámicamente -->
-        </tbody>
-        <tr id="button-inf">
-            <th><button id="add-data-btn">Agregar Dato</button></th>
-            <th><button id="plot-graph-btn">Graficar</button></th>
-            <th></th>
-        </tr>
-    </table>
+        </table>
 
-    <div id="graph-container">
-        <!-- Aquí se agregará la gráfica -->
+        <div id="graph-container">
+            <!-- Aquí se agregará la gráfica -->
+        </div>
     </div>
+
+    <footer class="footer">
+       
+        <p>
+            <h3>Universidad de Caldas © 2024</h3>
+            <h3>Manizales, Caldas</h3>
+            <h3>Contacto:</h3>
+            <a target="_blank" href="https://www.linkedin.com/in/jonathan-arroyave-developer/">
+                <img src="assets/linkedin.png" alt="LinkedIn" >
+            </a>
+            <a target="_blank" href="https://github.com/JonathanArroyaveGonzalez">
+                <img src="assets/github.png" alt="github" >
+            </a> 
+            <a target="_blank" href="mailto:jonathan.1701721921@ucaldas.edu.co">
+                <img src="assets/gmail.png" alt="Gmail" >
+            </a> 
+        </p>
+    </footer>
+    
+    
+    
 
     <script src="js/script.js"></script>
 </body>
