@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gráficas Regresión Lineal</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="assets/icono.ico" type="image/x-icon">
     
 </head>
 <body>
     <header class="header">
-        <h1>Gráficas Regresión Lineal <img class="img-grafica" src="assets/linea-grafica.png" alt="LinkedIn" ></h1>
         
+        <h1>Gráfica Regresión Lineal <img class="img-grafica" src="assets/SoPp.gif" alt="Fisica" width="100px" height="40px" ></h1>
+
     </header>
     <div class="description">
-        <p>Plataforma web diseñada para estudiantes de Laboratorio de Física 2 en la Universidad de Caldas.
-            Ofrece una herramienta práctica para comprender y aplicar la regresión lineal en experimentos físicos,
-             facilitando su realización y comprensión.
+        <p>Bienvenido a nuestra plataforma web diseñada específicamente para los estudiantes del Laboratorio de Física 2 en la Universidad de Caldas. Esta herramienta práctica está destinada a ayudarte a comprender y aplicar la regresión lineal en tus experimentos físicos, haciéndolos más accesibles y comprensibles.
+            <br>
+            <br>
+            Por defecto, las variables se denominan "X" y "Y", pero puedes personalizar estos nombres ingresando los valores deseados en los campos correspondientes. Estos nombres se utilizarán tanto en el título de la gráfica como en la ecuación de la regresión lineal, adaptándose así a tus necesidades específicas. ¡Explora y experimenta con confianza!
        </p>
     </div>
     <div class="container">
@@ -33,8 +36,12 @@
                 <!-- Aquí se agregarán las filas de datos dinámicamente -->
             </tbody>
             <tr id="button-inf">
-                <th><button id="add-data-btn">Agregar Dato</button></th>
-                <th><button id="plot-graph-btn">Graficar</button></th>
+                <th><button class="btn success" id="add-data-btn">Agregar Dato
+                    <img src="assets/agregar.png" alt="Agregar" width="30px" height="30px"" ></button></th>
+                
+                    <th><button class="btn warning" id="plot-graph-btn" >Graficar
+                        <img src="assets/linea-grafica.png" alt="Agregar" width="30px" height="30px"" >
+                    </button></th>
                 <th></th>
             </tr>
         </table>
@@ -43,29 +50,26 @@
             <!-- Aquí se agregará la gráfica -->
         </div>
     </div>
-
+    
+    
     <footer class="footer">
        
         <p>
-            <h3>Universidad de Caldas © 2024</h3>
-            <h3>Manizales, Caldas</h3>
-            <h3>Contacto:</h3>
+            <h4>Universidad de Caldas © 2024</h4>
+            <h4>Manizales, Caldas</h4>
+            <h4>Contacto:</h4>
             <a target="_blank" href="https://www.linkedin.com/in/jonathan-arroyave-developer/">
-                <img src="assets/linkedin.png" alt="LinkedIn" >
+                <img src="assets/linkedin.png" alt="LinkedIn" width="30px" height="30px">
             </a>
             <a target="_blank" href="https://github.com/JonathanArroyaveGonzalez">
-                <img src="assets/github.png" alt="github" >
+                <img src="assets/github.png" alt="github" width="30px" height="30px">
             </a> 
             <a target="_blank" href="mailto:jonathan.1701721921@ucaldas.edu.co">
-                <img src="assets/gmail.png" alt="Gmail" >
+                <img src="assets/gmail.png" alt="Gmail" width="30px" height="30px">
             </a> 
         </p>
     </footer>
     
-    
-    
-
-    <script src="js/script.js"></script>
 </body>
 </html>
 
