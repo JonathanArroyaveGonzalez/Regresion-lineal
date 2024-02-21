@@ -145,3 +145,17 @@ footer img {
     vertical-align: middle; /* Alineación vertical de las imágenes */
 }
 
+
+/* Diseño Resposivo para dispositivos moviles */
+
+@media screen and (max-width: 768px) {
+    #graph-container svg {
+        width: 100%; /* Ajusta el ancho del SVG al 100% del contenedor */
+        height: auto; /* Altura automática para mantener la proporción */
+    }
+
+    #graph-container {
+        margin: 0; /* Elimina los márgenes */
+        padding: 0; /* Elimina el padding */
+    }
+}

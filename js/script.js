@@ -1,3 +1,4 @@
+
 let docTitle = document.title;
 window.addEventListener("blur", () => {
   document.title = "¡Regresa! ☹";
@@ -5,6 +6,7 @@ window.addEventListener("blur", () => {
 window.addEventListener("focus", () => {
   document.title = docTitle;
 });
+
 document.addEventListener("DOMContentLoaded", function () {
   let data = [];
 
@@ -52,10 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function drawGraph(data) {
     const margin = { top: 20, right: 20, bottom: 90, left: 90 }; // Aumentamos el espacio inferior para dejar espacio al texto
-    const width = 600 - margin.left - margin.right;
-    const height = 400 - margin.top - margin.bottom;
 
-    //Datos del nombre de las variables para el titulo de la grafica
     let inputX = document.getElementById("inputX").value;
     let inputY = document.getElementById("inputY").value;
     //Inicializar el nombre de las variables por defecto x,y
@@ -71,10 +70,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const svg = svgContainer
       .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
+      .attr("viewBox", `0 0 ${window.innerWidth} ${window.innerHeight}`) // viewBox dinámico
+      .attr("preserveAspectRatio", "xMidYMid meet") // Mantener el aspect ratio
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    const width = window.innerWidth - margin.left - margin.right;
+    const height = window.innerHeight - margin.top - margin.bottom;
 
     const xScale = d3
       .scaleLinear()
@@ -151,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .line()
       .x((d) => xScale(d.x))
       .y((d) => yScale(slope * d.x + intercept))
-      .curve(d3.curveLinear); // asegúrate de que la línea sea suave
+      .curve(d3.curveLinear); // La linea debe ser suave.
 
     svg
       .append("path")
@@ -201,5 +203,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .text(rSquaredText)
       .style("font-size", "14px")
       .style("fill", "black");
-  }
+}
+
 });
