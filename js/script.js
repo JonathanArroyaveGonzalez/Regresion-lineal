@@ -69,8 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const svgContainer = d3.select("#graph-container");
     svgContainer.selectAll("*").remove();
 
-    const svg = d3
-      .select("#graph-container")
+    const svg = svgContainer
       .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
@@ -90,12 +89,31 @@ document.addEventListener("DOMContentLoaded", function () {
     const xAxis = d3.axisBottom().scale(xScale);
     const yAxis = d3.axisLeft().scale(yScale);
 
+    // Añadir ejes X e Y a la gráfica
     svg
       .append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis);
 
-    svg.append("g").call(yAxis);
+    svg
+      .append("g")
+      .call(yAxis);
+
+    // Agregar etiquetas a los ejes
+    svg
+      .append("text")
+      .attr("transform", "translate(" + (width / 2) + " ," + (height + margin.top + 20) + ")")
+      .style("text-anchor", "middle")
+      .text(inputX);
+
+    svg
+      .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x", 0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text(inputY);
 
     // Dibujar puntos de dispersión
     svg
