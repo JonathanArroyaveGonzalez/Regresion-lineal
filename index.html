@@ -7,49 +7,66 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
     <link rel="icon" href="assets/icono.ico" type="image/x-icon">
     
 </head>
 <body>
     <header class="header">
+        <h1>Navegando por la Física con Regresión Lineal</h1>
+        <div class="pyramid-loader">
+            <div class="wrapper">
+              <span class="side side1"></span>
+              <span class="side side2"></span>
+              <span class="side side3"></span>
+              <span class="side side4"></span>
+              <span class="shadow"></span>
+            </div>  
+          </div>
         
-        <h1>Gráfica Regresión Lineal <img class="img-grafica" src="assets/SoPp.gif" alt="Fisica" width="100px" height="40px" ></h1>
-
+        
     </header>
     <div class="description">
-        <p>Bienvenido a nuestra plataforma web diseñada específicamente para los estudiantes del Laboratorio de Física 2 en la Universidad de Caldas. Esta herramienta práctica está destinada a ayudarte a comprender y aplicar la regresión lineal en tus experimentos físicos, haciéndolos más accesibles y comprensibles.
+        <p>¡Bienvenido a nuestra plataforma web diseñada especialmente para estudiantes apasionados por la física! Esta herramienta práctica está destinada a ayudarte a comprender y aplicar la regresión lineal en tus experimentos físicos, haciéndolos más accesibles y comprensibles. Utilizamos el método de mínimos cuadrados para calcular la regresión, lo que te permite obtener resultados precisos y confiables. ¡Explora nuestra plataforma y lleva tus investigaciones físicas al siguiente nivel!
             <br>
             <br>
             Por defecto, las variables se denominan "X" y "Y", pero puedes personalizar estos nombres ingresando los valores deseados en los campos correspondientes. Estos nombres se utilizarán tanto en el título de la gráfica como en la ecuación de la regresión lineal, adaptándose así a tus necesidades específicas. ¡Explora y experimenta con confianza!
        </p>
     </div>
     <div class="container">
+        <div class="v-data">
+            <input type="text" placeholder="Variable X" id="inputX"/>
+            <input type="text" placeholder="Variable Y" id="inputY"/>
+        </div>
         <table>
-            <thead>
-                <tr>
-                    <th><input type="text" placeholder="Variable independiente X" id="inputX" /></th>
-                    <th><input type="text" placeholder="Variable dependiente Y" id="inputY"/></th>
-                    <th></th>
-                </tr>
-            </thead>
             <tbody id="data-table">
                 <!-- Aquí se agregarán las filas de datos dinámicamente -->
+                <td><input type="number" class="input-x"></td>
+            <td><input type="number" class="input-y"></td>
+            <td><button class="btn success" id="add-data-btn">
+            <img src="./assets/agregar.png" alt="Agregar" width="30px" height="30px" ></button></td>
+            <td><button class="btn danger delete-btn">
+            <img src="./assets/boton-x.png" alt="Eliminar" width="30px" height="30px" ></button></td>
             </tbody>
-            <tr id="button-inf">
-                <th><button class="btn success" id="add-data-btn">Agregar Dato
-                    <img src="assets/agregar.png" alt="Agregar" width="30px" height="30px"" ></button></th>
-                
-                    <th><button class="btn warning" id="plot-graph-btn" >Graficar
-                        <img src="assets/linea-grafica.png" alt="Agregar" width="30px" height="30px"" >
-                    </button></th>
-                <th></th>
-            </tr>
+            
         </table>
-
-        <div id="graph-container">
-            <!-- Aquí se agregará la gráfica -->
+        <div>
+                <button class="btn warning" id="plot-graph-btn" >Graficar
+                    <img src="assets/linea-grafica.png" alt="Agregar" width="30px" height="30px" >
+                </button>
         </div>
+      
+        
+    </div >
+
+    <div id="container-data">
+        <div id="table-data-container">
+            <!-- Aquí se agregará la tabla de datos. -->
+        </div>
+        <div id="graph-container">
+        <!-- Aquí se agregará la gráfica -->
     </div>
+</div>
     
     
     <footer class="footer">

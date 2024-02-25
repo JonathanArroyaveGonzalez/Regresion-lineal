@@ -1,3 +1,4 @@
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin:  0;
@@ -5,7 +6,12 @@ body {
     background: #FFFFFF;
 }
 
+/* Estilos para el encabezado */
 .header {
+    display:flex;
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center;
+    //flex-direction:rows;
     background-image: linear-gradient(120deg, #84fab0  0%, #8fd3f4  100%);
     padding:  20px  0;
     text-align: center;
@@ -16,111 +22,94 @@ body {
     margin:  0;
     font-size:  24px;
     font-weight: bold;
-    color:#02073c; /* Cambiado a blanco para contraste con el degradado */
+    color: #02073c; /* Cambiado a blanco para contraste con el degradado */
 }
 
+/* Estilos para la descripción */
 .description {
     padding:  10px;
-    font-family: Arial, sans-serif;
     font-size:  16px;
     color: #333; /* Añadido color de texto para mejorar la legibilidad */
 }
 
+/* Estilos para el contenedor principal */
 .container {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    flex-direction: column; /* Alinea los elementos en una columna */
     padding:  20px;
+    width:  40%; /* Ancho del contenedor */
+    margin:  0 auto; /* Centrado horizontal */
+    background-color: #f9f9f9; /* Color de fondo */
+    border-radius:  5px; /* Bordes redondeados */
+    box-shadow:  0  2px  4px rgba(0,  0,  0,  0.1); /* Sombra */
 }
 
+/* Estilos para la tabla */
 table {
+    display:flex;
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
     max-height:  400px;
     border-collapse: collapse;
-    margin-right:  20px;
-    //width:  30%; /* Asegura que la tabla ocupe todo el ancho disponible */
+    width:  40%; /* Asegura que la tabla ocupe todo el ancho disponible */
 }
 
-th, td {
-    text-align: center;
-    border-bottom:  1px solid #ccc;
-}
-
-input {
-    padding:  2px;
-    text-align: center;
-    width:  100%; /* Asegura que los inputs ocupen todo el ancho disponible */
-}
 
 th {
     background-color: #f2f2f2;
 }
 
-#data-table {
-    margin-bottom:  10px;
+
+
+/* Estilos para el div v-data */
+.v-data {
+    display: flex; /* Alinea los inputs horizontalmente */
+    justify-content: space-between; /* Distribuye el espacio entre los inputs */
+    padding:  20px; /* Espacio alrededor del div */
+    margin-bottom:  20px; /* Margen inferior */
 }
 
-button {
-    display: block;
-    margin-bottom:  10px;
-    padding:  2px;
-    color: white;
-    cursor: pointer;
-    border-radius:  5px;
-    background-color: #04AA6D; /* Añadido color de fondo para los botones */
-    border: none;
-    width:  100%; /* Asegura que los botones ocupen todo el ancho disponible */
+/* Estilos específicos para los inputs dentro de v-data */
+.v-data input[type="text"] {
+    width:  100%; /* Ancho de los inputs */
+    padding:  10px; /* Espacio interior de los inputs */
+    margin:  5px  0; /* Margen superior e inferior de los inputs */
+    border:  1px solid #ccc; /* Borde de los inputs */
+    border-radius:  4px; /* Bordes redondeados */
+    font-size:  16px; /* Tamaño de la fuente */
+    color: #333; /* Color del texto */
+    background-color: #fff; /* Color de fondo */
 }
 
-#graph-container {
-    flex:  2;
-    margin-bottom:  20px;
-    border:  1px solid #ccc;
-    padding:  20px;
-}
-
-/* Estilos botones */
+/* Estilos para los botones */
 .btn {
-    background-color: white;
-    color: black;
-    padding:  12px  26px;
-    font-size:  16px;
-    cursor: pointer;
-    border:  1px solid #ccc; /* Añadido borde para los botones */
+    padding:  10px  20px; /* Espacio interior de los botones */
+    border: none; /* Sin borde */
+    border-radius:  5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de mano al pasar el mouse */
+    font-size:  16px; /* Tamaño de la fuente */
 }
 
-/* Green */
-.success {
-    border-color: #04AA6D;
-    color: green;
+/* Estilos específicos para los botones de acción */
+.btn.danger {
+    background-color: #f44336; /* Rojo */
+    color: white; /* Texto blanco */
 }
 
-.success:hover {
-    background-color: #04AA6D;
-    color: white;
+.btn.success {
+    margin-left: 1%;
+    background-color: #4CAF50; /* Verde */
+    color: white; /* Texto blanco */
 }
 
-/* Orange */
-.warning {
-    border-color: #ff9800;
-    color: orange;
+.btn.warning {
+    background-color: #ff9800; /* Naranja */
+    color: white; /* Texto blanco */
 }
 
-.warning:hover {
-    background: #ff9800;
-    color: white;
-}
-
-/* Red */
-.danger {
-    margin:10px;
-    border-color: #f2f2f2;
-    color: red;
-}
-
-.danger:hover {
-    background: #f44336;
-    color: white;
-}
-
+/* Estilos para el pie de página */
 footer {
     background-image: linear-gradient(120deg, #84fab0  0%, #8fd3f4  100%);
     padding:  20px;
@@ -146,16 +135,121 @@ footer img {
 }
 
 
-/* Diseño Resposivo para dispositivos moviles */
 
-@media screen and (max-width: 768px) {
-    #graph-container svg {
-        width: 100%; /* Ajusta el ancho del SVG al 100% del contenedor */
-        height: auto; /* Altura automática para mantener la proporción */
+
+#container-data {
+    display: grid;
+    grid-template-columns: 8% 90%; /* Dos columnas, la primera ocupa el 10% y la segunda el 90% */
+    padding:5%;
+}
+
+#table-data-container {
+    padding:5%;
+    width: 100%;
+}
+
+#table-data-container td{
+    border:  1px solid #ccc; 
+    padding: 10px;
+}
+
+
+#graph-container {
+    /* Ocupa el resto del ancho disponible */
+    width: 100%;
+}
+
+
+.input-x , .input-y{
+    
+    height:10%; 
+    width: 140px; /* Ancho de los inputs */
+    margin-right: 14px;
+    padding:  4%; /* Espacio interior de los inputs */
+    border:  1px solid #ccc; /* Borde de los inputs */
+    border-radius:  4px; /* Bordes redondeados */
+    font-size:  16px; /* Tamaño de la fuente */
+    color: #333; /* Color del texto */
+    background-color: #fff; /* Color de fondo */
+    text-align: center;
+    
+}
+
+
+/* Diseño Responsivo para dispositivos móviles */
+@media screen and (max-width:  768px) {
+    body {
+        font-size:  14px; /* Ajusta el tamaño de la fuente para dispositivos móviles */
+    }
+
+    .header {
+        padding:  10px  0; /* Reduce el padding para dispositivos móviles */
+    }
+
+    .header h1 {
+        font-size:  20px; /* Reduce el tamaño de la fuente para dispositivos móviles */
+    }
+
+    .description {
+        font-size:  14px; /* Reduce el tamaño de la fuente para dispositivos móviles */
+    }
+
+    .container {
+        width:  90%; /* Ajusta el ancho para dispositivos móviles */
+        padding:  10px; /* Reduce el padding para dispositivos móviles */
+    }
+
+    table {
+        width:  100%; /* Asegura que la tabla ocupe todo el ancho disponible en dispositivos móviles */
+    }
+
+    .v-data {
+        flex-direction: column; /* Cambia la dirección de los inputs a columna en dispositivos móviles */
+        align-items: stretch; /* Asegura que los inputs se estiren para ocupar todo el ancho disponible */
+    }
+
+    .v-data input[type="text"] {
+        width:  100%; /* Asegura que los inputs ocupen todo el ancho disponible en dispositivos móviles */
+        margin-bottom:  10px; /* Añade un margen inferior para separar los inputs en dispositivos móviles */
+    }
+
+    .btn {
+        padding:  8px  16px; /* Reduce el padding de los botones para dispositivos móviles */
+        font-size:  14px; /* Reduce el tamaño de la fuente de los botones para dispositivos móviles */
+    }
+
+    footer {
+        padding:  10px; /* Reduce el padding para dispositivos móviles */
+    }
+
+    footer h4 {
+        font-size:  14px; /* Reduce el tamaño de la fuente para dispositivos móviles */
+    }
+
+    footer a {
+        margin:  0  3px; /* Reduce el margen entre los enlaces para dispositivos móviles */
+    }
+
+    footer img {
+        width:  24px; /* Reduce el tamaño de las imágenes para dispositivos móviles */
+        height:  24px;
     }
 
     #graph-container {
-        margin: 0; /* Elimina los márgenes */
-        padding: 0; /* Elimina el padding */
+        width:  100%; /* Asegura que el graph-container ocupe todo el ancho disponible en dispositivos móviles */
+    }
+
+    #container-data {
+        grid-template-columns:  1fr; /* Cambia a una sola columna en dispositivos móviles */
+        padding:  2%; /* Reduce el padding para dispositivos móviles */
+    }
+
+    #table-data-container {
+        padding:  2%; /* Reduce el padding para dispositivos móviles */
+    }
+
+    .input-x, .input-y {
+        width:  100%; /* Asegura que los inputs ocupen todo el ancho disponible en dispositivos móviles */
+        margin-right:  0; /* Elimina el margen a la derecha para dispositivos móviles */
     }
 }

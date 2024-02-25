@@ -19,8 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
     newRow.innerHTML = `
             <td><input type="number" class="input-x"></td>
             <td><input type="number" class="input-y"></td>
-            <td><button class="btn danger delete-btn">Eliminar
-            <img src="./assets/boton-x.png" alt="Eliminar" width="30px" height="30px"" ></button></td>
+            <td><button class="btn success btn-succes">
+            <img src="./assets/agregar.png" alt="Agregar" width="30px" height="30px" ></button></td>
+            <td><button class="btn danger delete-btn">
+            <img src="./assets/boton-x.png" alt="Eliminar" width="30px" height="30px" ></button></td>
+            
         `;
     dataTable.appendChild(newRow);
   });
@@ -30,8 +33,28 @@ document.addEventListener("DOMContentLoaded", function () {
       event.target.classList.contains("delete-btn") ||
       event.target.parentElement.classList.contains("delete-btn")
     ) {
+      const rows = document.querySelectorAll("#data-table tr");
+    if (rows.length > 1) { // se Verifica si hay más de un elemento
       event.target.closest("tr").remove();
     }
+    };
+
+    if(
+      event.target.classList.contains("btn-succes") ||
+      event.target.parentElement.classList.contains("btn-succes")
+    ){
+      const newRow = document.createElement("tr");
+    newRow.innerHTML = `
+            <td><input type="number" class="input-x"></td>
+            <td><input type="number" class="input-y"></td>
+            <td><button class="btn success btn-succes">
+            <img src="assets/agregar.png" alt="Agregar" width="30px" height="30px" ></button></td>
+            <td><button class="btn danger delete-btn">
+            <img src="./assets/boton-x.png" alt="Eliminar" width="30px" height="30px" ></button></td>
+            
+        `;
+    dataTable.appendChild(newRow);
+    };
   });
 
   plotGraphBtn.addEventListener("click", function () {
@@ -48,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (data.length > 0) {
       drawGraph(data);
+      insertDataTable(data);
       data = [];
     }
   });
@@ -205,4 +229,43 @@ document.addEventListener("DOMContentLoaded", function () {
       .style("fill", "black");
 }
 
+function insertDataTable(data) {
+  const tableContainer = document.getElementById("table-data-container");
+  let inputX = document.getElementById("inputX").value;
+  let inputY = document.getElementById("inputY").value;
+  tableContainer.innerHTML = ''; // Limpiar el contenedor antes de insertar la nueva tabla
+
+  //Inicializar el nombre de las variables por defecto x,y
+  if (inputX.trim() === "" && inputY.trim() === "") {
+    inputX = "X";
+    inputY = "Y";
+  }
+
+  if (data.length === 0) {
+    tableContainer.innerHTML = "<p>No hay datos para mostrar.</p>";
+    return;
+  }
+
+  const table = document.createElement("table");
+  const headerRow = table.insertRow();
+  const headerCellX = headerRow.insertCell();
+  headerCellX.textContent = inputX;
+  const headerCellY = headerRow.insertCell();
+  headerCellY.textContent = inputY;
+
+  data.forEach(({ x, y }) => {
+    const row = table.insertRow();
+    const cellX = row.insertCell();
+    cellX.textContent = parseFloat(x).toFixed(1);
+    const cellY = row.insertCell();
+    cellY.textContent = parseFloat(y).toFixed(1); 
+  });
+
+  tableContainer.appendChild(table);
+}
 });
+
+
+
+
+
